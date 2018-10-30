@@ -5,14 +5,15 @@
   <script>
     (function() {
       let timestamp = new Date().getTime();
-      let audiofile = '/audio/airhorn.mp3?z=' + timestamp.toString();
+      let origin = window.location.search.indexOf('port8086') !== -1 ? 'http://localhost:8086' : '';
+      let audiofile = origin + '/audio/airhorn.mp3?z=' + timestamp.toString();
 
 
       function loadAudio() {
       var AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioContext = new AudioContext();
         let audioElement = new Audio(audiofile);
-        // audioElement.crossOrigin = 'anonymous';
+        audioElement.crossOrigin = 'anonymous';
         let source = audioContext.createMediaElementSource(audioElement);
         let gainNode = audioContext.createGain();
         source.connect(gainNode);

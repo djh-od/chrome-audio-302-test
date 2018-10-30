@@ -1,6 +1,7 @@
 version: '3'
 services:
   audio_test:
+    container_name: chrome_audio_test
     image: nginx
     volumes:
       - .:/etc/nginx/html
