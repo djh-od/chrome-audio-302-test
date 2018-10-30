@@ -1,0 +1,10 @@
+version: '3'
+services:
+  audio_test:
+    image: nginx
+    volumes:
+      - .:/etc/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8085:8085"
+      - "8086:8086"

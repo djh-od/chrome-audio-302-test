@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audio Tests</title>
+  <script>
+    (function() {
+      let timestamp = new Date().getTime();
+      let audiofile = '/audio/airhorn.mp3?z=' + timestamp.toString();
+
+
+      function loadAudio() {
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioContext = new AudioContext();
+        let audioElement = new Audio(audiofile);
+        // audioElement.crossOrigin = 'anonymous';
+        let source = audioContext.createMediaElementSource(audioElement);
+        let gainNode = audioContext.createGain();
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        audioElement.load();
+
+        document.getElementById('play').addEventListener('click', function(ev) {
+          ev.preventDefault();
+          audioContext.resume();
+          audioElement.play();
+        });
+      }
+
+
+      window.onload = loadAudio;
+    })();
+  </script>
+</head>
+<body>
+  <a href="#" id="play">Play</a>
+</body>
+</html>
