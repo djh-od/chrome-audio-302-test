@@ -12,8 +12,8 @@ Issue reported here: https://bugs.chromium.org/p/chromium/issues/detail?id=89974
 
 ## Test Results
 
-|URL|Test|Result|
-|---|---|---|
-|http://localhost:8085/audio-302.htm|Redirect on audio source|:thumbsdown:|
-|http://localhost:8086/audio-302.htm|No redirect, same origin|:thumbsup:|
-|http://localhost:8085/audio-302.htm?port8086|No redirect, cross origin|:thumbsup:|
+|URL|Test|Chrome 71|Chrome 70 (and Safari, Edge, Firefox)
+|---|---|---|---|
+|http://localhost:8085/audio-302.htm|Redirect on audio source|:thumbsdown:|:thumbsup:|
+|http://localhost:8086/audio-302.htm|No redirect, same origin|:thumbsup:|:thumbsup:|
+|http://localhost:8085/audio-302.htm?port8086|No redirect, cross origin|:thumbsup:|:thumbsup:|
