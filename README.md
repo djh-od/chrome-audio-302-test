@@ -1,4 +1,10 @@
-##
+Chrome 71 seems to reject all audio elements loaded into an AudioContext if the audio element's source is redirected
+
+Error in console when this occurs:
+
+> MediaElementAudioSource outputs zeroes due to CORS access restrictions for...
+
+Issue reported here: https://bugs.chromium.org/p/chromium/issues/detail?id=899745
 
 ## Running
 
@@ -10,4 +16,4 @@
 |---|---|---|
 |http://localhost:8085/audio-302.htm|Redirect on audio source|:thumbsdown:|
 |http://localhost:8086/audio-302.htm|No redirect, same origin|:thumbsup:|
-|http://localhost:8085/audio-302.htm?port=8086|No redirect, cross origin|:thumbsup:|
+|http://localhost:8085/audio-302.htm?port8086|No redirect, cross origin|:thumbsup:|
